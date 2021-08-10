@@ -23,5 +23,6 @@
     "lib",
     "es"
   ],
-  "compileOnSave": false
+  "compileOnSave": false,
+  "extends": "expo/tsconfig.base"
 }
