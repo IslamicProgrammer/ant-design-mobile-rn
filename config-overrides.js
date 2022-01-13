@@ -6,14 +6,16 @@ module.exports = function override(config, env) {
     (plugin) => !(plugin instanceof ModuleScopePlugin),
   )
 
-  config.plugins.push(new webpack.DefinePlugin({
-    __DEV__: JSON.stringify(env.mode !== 'production'),
-  }))
+  config.plugins.push(
+    new webpack.DefinePlugin({
+      __DEV__: JSON.stringify(env.mode !== 'production'),
+    }),
+  )
 
   config.module.rules.push({
-    test: /\.(js|jsx)$/,
+    test: /\.(js|jsx|tsx)$/,
     loader: 'babel-loader',
-    options: { presets: ['@babel/preset-env','@babel/preset-react'] },
+    options: { presets: ['@babel/preset-env', '@babel/preset-react'] },
   })
 
   return config
