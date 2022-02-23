@@ -23,14 +23,14 @@ export default class Checkbox extends React.Component<CheckboxProps, any> {
 
   constructor(props: CheckboxProps, context: any) {
     super(props, context)
-
+    
     this.state = {
       checked: props.checked || props.defaultChecked || false,
     }
   }
 
   UNSAFE_componentWillReceiveProps(nextProps: CheckboxProps): void {
-    if (typeof nextProps.checked === 'boolean') {
+    if (typeof nextProps.checked === 'boolean' || nextProps.hasOwnProperty(chacked)) {
       this.setState({
         checked: !!nextProps.checked,
       })
